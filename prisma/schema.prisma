@@ -8,17 +8,26 @@ datasource db {
 }
 
 model user {
-  id                Int      @id @default(autoincrement())
-  username          String
-  email             String   @unique
-  password          String
+  id        Int      @id @default(autoincrement())
+  username  String
+  email     String   @unique
+  password  String
+  isAdmin   Boolean  @default(false)
+  gender    String
+  address   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model doctor {
+  id                Int     @id @default(autoincrement())
+  phone             String
+  speciality        String
   bio               String
   jobTitle          String
-  isAdmin           Boolean  @default(false)
-  IsAccountVerified Boolean  @default(false)
-  profilePhoto      String   @default("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png")
-  gender            String
-  address           String
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  profilePhoto      String  @default("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png")
+  IsAccountVerified Boolean @default(false)
+  isDisabled        Boolean @default(false)
+  ticketPrice       Decimal
+  certificate       String
 }

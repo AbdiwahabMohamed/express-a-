@@ -25,11 +25,8 @@ export const createUser = async (req, res) => {
         username: body.username,
         email: body.email,
         password: passwordHash,
-        bio: body.bio,
-        jobTitle: body.jobTitle,
         gender: body.gender,
         address: body.address,
-        profilePhoto: body.profilePhoto,
       },
     });
     return res.json({ message: "User created successfully" });
