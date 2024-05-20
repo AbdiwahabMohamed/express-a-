@@ -20,14 +20,16 @@ model user {
 }
 
 model doctor {
-  id                Int     @id @default(autoincrement())
+  id                Int      @id @default(autoincrement())
   phone             String
   speciality        String
   bio               String
   jobTitle          String
-  profilePhoto      String  @default("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png")
-  IsAccountVerified Boolean @default(false)
-  isDisabled        Boolean @default(false)
+  profilePhoto      String   @default("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png")
+  IsAccountVerified Boolean  @default(false)
+  isDisabled        Boolean  @default(false)
   ticketPrice       Decimal
   certificate       String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 }
